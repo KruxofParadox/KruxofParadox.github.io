@@ -6,3 +6,30 @@
 body {
     background-color: var(--background);
 }
+
+h1, p {
+    color: var(--foreground);
+}
+
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn {
+    color: var(--foreground);
+    font-weight: 300;
+    background-color: var(--background);
+}
+
+.btn:hover {
+    color: var(--background);
+    font-weight: 500;
+    background-color: var(--foreground);
+}

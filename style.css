@@ -1,6 +1,7 @@
 :root {
     --background: #27262E;
     --foreground: #E4E4E5;
+    --transition-time: 0.8s;
 }
 
 @keyframes fadeIn {
@@ -9,15 +10,14 @@
 }
 
 .fade-in {
-    animation: fadeIn 7s;
+    animation: fadeIn 6s;
 }
-
 
 body {
     background-color: var(--background);
 }
 
-h1, p {
+h1 {
     color: var(--foreground);
 }
 
@@ -32,19 +32,53 @@ h1, p {
     text-align: center;
 }
 
-.btn {
+button {
     padding: 5px;
+    width: 110px;
+    position: relative;
     color: var(--foreground);
     font-weight: 300;
     background-color: var(--background);
     border: 2px solid var(--foreground);
-    border-radius: 5px;
-    transition: ease 0.7s;
+    border-radius: 5px;  
+    box-shadow: inset 0 0 0 0 var(--background);
+    outline: none;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all var(--transition-time) ease-in-out;
 }
 
-.btn:hover {
+button:hover {
+    cursor: pointer;
     color: var(--background);
     font-weight: 500;
-    background-color: var(--foreground);
-    transform: translateY(-5px);
+    box-shadow: inset 110px 0 0 0 var(--foreground);
+    transform: scale(1.1);
+}
+
+/* TEXT INSIDE BUTTON */
+button::before {
+    content: attr(data-hover);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: opacity var(--transition-time) ease, transform var(--transition-time) ease-in-out;
+}
+
+button:hover::before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* TEXT INSIDE DIV */
+button div {
+    transition: opacity 1.3s ease-in-out, 
+    transform var(--transition-time) ease-in-out;
+}
+
+button:hover div {
+    opacity: 0;
+    transform: translate(100%, 0);
 }

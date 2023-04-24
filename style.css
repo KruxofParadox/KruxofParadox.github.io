@@ -1,84 +1,89 @@
 :root {
-    --background: #27262E;
-    --foreground: #E4E4E5;
-    --transition-time: 0.8s;
+  --background: #27262e;
+  --foreground: #e4e4e5;
+  --transition-time: 0.8s;
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade-in {
-    animation: fadeIn 10s;
+  animation: fadeIn 10s;
 }
 
 body {
-    background-color: var(--background);
+  background-color: var(--background);
 }
 
 h1 {
-    color: var(--foreground);
+  color: var(--foreground);
 }
 
 .center-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 button {
-    padding: 5px;
-    width: 110px;
-    position: relative;
-    color: var(--foreground);
-    font-weight: 300;
-    background-color: var(--background);
-    border: 2px solid var(--foreground);
-    border-radius: 5px;  
-    box-shadow: inset 0 0 0 0 var(--background);
-    outline: none;
-    overflow: hidden;
-    transform: scale(1);
-    transition: all var(--transition-time) ease-in-out;
+  padding: 5px;
+  width: 110px;
+  position: relative;
+  color: var(--foreground);
+  font-weight: 300;
+  background-color: var(--background);
+  border: 2px solid var(--foreground);
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 0 var(--background);
+  outline: none;
+  overflow: hidden;
+  transform: scale(1);
+  transition: all var(--transition-time) ease-in-out;
 }
 
 button:hover {
-    cursor: pointer;
-    color: var(--background);
-    font-weight: 500;
-    box-shadow: inset 110px 0 0 0 var(--foreground);
-    transform: scale(1.1);
+  cursor: pointer;
+  color: var(--background);
+  font-weight: 500;
+  box-shadow: inset 110px 0 0 0 var(--foreground);
+  transform: scale(1.1);
 }
 
 /* TEXT INSIDE BUTTON */
 button::before {
-    content: attr(data-hover);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transform: translate(-100%, 0);
-    transition: opacity var(--transition-time) ease, transform var(--transition-time) ease-in-out;
+  content: attr(data-hover);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: opacity var(--transition-time) ease,
+    transform var(--transition-time) ease-in-out;
 }
 
 button:hover::before {
-    opacity: 1;
-    transform: translate(0, 0);
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 /* TEXT INSIDE DIV */
 button div {
-    transition: opacity 1.3s ease-in-out, 
+  transition: opacity 1.3s ease-in-out,
     transform var(--transition-time) ease-in-out;
 }
 
 button:hover div {
-    opacity: 0;
-    transform: translate(100%, 0);
+  opacity: 0;
+  transform: translate(100%, 0);
 }
